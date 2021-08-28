@@ -19,6 +19,7 @@ RUN apt-get update  \
     && apt-get install -y --no-install-recommends \
     libbz2-dev \
     libxml2-dev \
+    libxslt-dev \
     zlib1g-dev \
     libncurses5-dev \
     libldb-dev \
@@ -30,23 +31,27 @@ RUN apt-get update  \
     libsqlite3-dev \
     libzip-dev \
     libonig-dev \
+    exiftool \
     msmtp \
     curl \
+    wget \
     git \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd && \
-    docker-php-ext-install pdo_mysql && \
-    docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
-    docker-php-ext-install mysqli \
+RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
+    && docker-php-ext-install mysqli \
     bcmath \
     bz2 \
+    exif \
     ftp \
     intl \
     opcache \
     soap \
     sockets \
+    xsl \
     zip
 
 RUN cp $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
