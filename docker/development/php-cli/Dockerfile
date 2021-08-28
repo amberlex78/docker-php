@@ -24,6 +24,7 @@ RUN apt-get update  \
     msmtp \
     curl \
     git \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
