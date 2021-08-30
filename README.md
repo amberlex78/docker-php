@@ -1,6 +1,6 @@
 # Skeleton docker php:8.0
 
-Includes: `nginx-proxy`, `php:8.0-cli`, `php:8.0-fpm`, `mysql:5.7`, `adminer` 
+Includes: `nginx-proxy`, `php:8.0-cli`, `php:8.0-fpm`, `mysql:8.0`, `adminer` 
 
 > **Note!**
 > 
@@ -39,7 +39,7 @@ You can see result in console `make php-hello`
 ---
 ## What to use in your project?
 
-If your project does not initially have docker, you need copy in your project folder `docker`, and files `docker-compose.yml` and `Makefile`
+If your project does not initially have docker, you need copy in your project `docker` folder, and files `docker-compose.yml` and `Makefile`
 
 In the `nginx` image, in the `VIRTUAL_HOST` section, specify the site url.
 
@@ -57,14 +57,17 @@ The database host will be `db`
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
-DB_DATABASE=app
-DB_USERNAME=dev
-DB_PASSWORD=dev
+DB_DATABASE=dbname
+DB_USERNAME=dbuser
+DB_PASSWORD=secret
 ```
 ### For example Symfony
 ```
-DATABASE_URL=mysql://dev:dev@db:3306/app?serverVersion=5.7
+DATABASE_URL=mysql://dbuser:secret@db:3306/dbname?serverVersion=8.0
 ```
-### Settings DB for PhpStorm
 
+### For Adminer
+![adminer-db](./doc/adminer-db.png)
+
+### For PhpStorm
 ![phpstorm-db](./doc/phpstorm-db.png)
