@@ -37,7 +37,6 @@ RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     bcmath \
     bz2 \
     exif \
-    ftp \
     intl \
     opcache \
     soap \
