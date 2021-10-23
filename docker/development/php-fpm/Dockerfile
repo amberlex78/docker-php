@@ -38,7 +38,6 @@ RUN apt-get update && \
     libzip-dev \
     libonig-dev \
     exiftool \
-    msmtp \
     curl \
     wget && \
     rm -rf /var/lib/apt/lists/*
